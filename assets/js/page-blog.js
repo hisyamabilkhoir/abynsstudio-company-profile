@@ -147,7 +147,7 @@ const PageBlogDetail = {
         <div class="container">
           <h1 class="shimmer-heading">Artikel Tidak Ditemukan</h1>
           <p>Maaf, artikel yang Anda cari tidak tersedia.</p>
-          <a href="/blog" class="btn btn-gold nav-internal" style="margin-top:var(--space-xl);">← Kembali ke Blog</a>
+          <a href="blog" class="btn btn-gold nav-internal" style="margin-top:var(--space-xl);">← Kembali ke Blog</a>
         </div>
       </section>`;
     }
@@ -168,7 +168,7 @@ const PageBlogDetail = {
       <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,${article.color});border-radius:var(--radius-lg);margin-bottom:var(--space-2xl);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(212,168,67,0.2);border:1px solid var(--glass-border);">📝</div>
       ${article.content}
       <div style="margin-top:var(--space-3xl);padding-top:var(--space-2xl);border-top:1px solid var(--glass-border);text-align:center;">
-        <a href="/blog" class="btn btn-outline nav-internal">← Kembali ke Blog</a>
+        <a href="blog" class="btn btn-outline nav-internal">← Kembali ke Blog</a>
       </div>
     </article>`;
   },

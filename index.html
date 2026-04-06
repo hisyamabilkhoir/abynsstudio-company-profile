@@ -29,11 +29,16 @@
     (function(){
       var path = window.location.pathname;
       var base = '/';
-      // Detect if running in a subdirectory (e.g. XAMPP)
-      var match = path.match(/^(\/[^\/]+\/[^\/]+\/)/);
-      if (match && !path.match(/^\/[^\/]+\/index\.html/)) {
-        base = match[1];
+      
+      // Robust detection for GitHub Pages and subdirectories
+      if (window.location.hostname.includes('github.io')) {
+        var repo = path.split('/')[1];
+        if (repo) base = '/' + repo + '/';
+      } else if (path.includes('abynsstudio-company-profile')) {
+        var match = path.match(/.*abynsstudio-company-profile\//);
+        if (match) base = match[0];
       }
+      
       document.write('<base href="' + base + '">');
       window.__BASE = base;
     })();
@@ -75,15 +80,15 @@
   <header>
     <nav id="navbar" aria-label="Main navigation">
       <div class="nav-inner">
-        <a href="/" class="nav-logo nav-internal" aria-label="Studio Abynd Home">Studio Abynd</a>
+        <a href="./" class="nav-logo nav-internal" aria-label="Studio Abynd Home">Studio Abynd</a>
         <div class="nav-links" id="nav-links">
-          <a href="/" class="nav-link nav-internal">Home</a>
-          <a href="/about" class="nav-link nav-internal">About</a>
-          <a href="/services" class="nav-link nav-internal">Services</a>
-          <a href="/portfolio" class="nav-link nav-internal">Portfolio</a>
-          <a href="/blog" class="nav-link nav-internal">Blog</a>
-          <a href="/awards" class="nav-link nav-internal">Awards</a>
-          <a href="/contact" class="nav-link nav-internal">Contact</a>
+          <a href="./" class="nav-link nav-internal">Home</a>
+          <a href="about" class="nav-link nav-internal">About</a>
+          <a href="services" class="nav-link nav-internal">Services</a>
+          <a href="portfolio" class="nav-link nav-internal">Portfolio</a>
+          <a href="blog" class="nav-link nav-internal">Blog</a>
+          <a href="awards" class="nav-link nav-internal">Awards</a>
+          <a href="contact" class="nav-link nav-internal">Contact</a>
         </div>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span>
@@ -105,7 +110,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="nav-logo nav-internal" style="font-size:1.4rem;">Studio Abynd</a>
+          <a href="./" class="nav-logo nav-internal" style="font-size:1.4rem;">Studio Abynd</a>
           <p>Digital agency premium yang menghadirkan solusi berkelas internasional. Setiap pixel dirancang untuk kesempurnaan.</p>
           <div class="footer-socials">
             <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">📷</a>
@@ -117,19 +122,19 @@
         <div>
           <h4 class="footer-title">Navigasi</h4>
           <ul class="footer-links">
-            <li><a href="/" class="nav-internal">Home</a></li>
-            <li><a href="/about" class="nav-internal">About</a></li>
-            <li><a href="/services" class="nav-internal">Services</a></li>
-            <li><a href="/portfolio" class="nav-internal">Portfolio</a></li>
+            <li><a href="./" class="nav-internal">Home</a></li>
+            <li><a href="about" class="nav-internal">About</a></li>
+            <li><a href="services" class="nav-internal">Services</a></li>
+            <li><a href="portfolio" class="nav-internal">Portfolio</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-title">Layanan</h4>
           <ul class="footer-links">
-            <li><a href="/services" class="nav-internal">Website</a></li>
-            <li><a href="/services" class="nav-internal">Mobile App</a></li>
-            <li><a href="/services" class="nav-internal">Branding</a></li>
-            <li><a href="/services" class="nav-internal">Multimedia</a></li>
+            <li><a href="services" class="nav-internal">Website</a></li>
+            <li><a href="services" class="nav-internal">Mobile App</a></li>
+            <li><a href="services" class="nav-internal">Branding</a></li>
+            <li><a href="services" class="nav-internal">Multimedia</a></li>
           </ul>
         </div>
         <div>
@@ -137,7 +142,7 @@
           <ul class="footer-links">
             <li><a href="mailto:hello@studioabynd.com">hello@studioabynd.com</a></li>
             <li><a href="tel:+6281234567890">+62 812 3456 789</a></li>
-            <li><a href="/contact" class="nav-internal">Jakarta, Indonesia</a></li>
+            <li><a href="contact" class="nav-internal">Jakarta, Indonesia</a></li>
           </ul>
         </div>
       </div>

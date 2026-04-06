@@ -22,7 +22,9 @@ const App = {
     const storedRoute = sessionStorage.getItem('route');
     if (storedRoute) {
       sessionStorage.removeItem('route');
-      history.replaceState(null, '', this.basePath + storedRoute.replace(/^\//, ''));
+      // If storedRoute is full path (with basePath), use it. Otherwise, prepend basePath.
+      const target = storedRoute.startsWith(this.basePath) ? storedRoute : this.basePath + storedRoute.replace(/^\//, '');
+      history.replaceState(null, '', target);
     }
     this.currentPath = this.getPath();
     this.renderPage(this.currentPath, false);
@@ -133,7 +135,8 @@ const App = {
 
   getPageContent(path) {
     // Normalize path
-    const cleanPath = path.replace(/\/+$/, '') || '/';
+    let cleanPath = path.replace(/\/+$/, '') || '/';
+    if (cleanPath === '/index.html') cleanPath = '/';
 
     // Check for blog detail
     const blogMatch = cleanPath.match(/^\/blog\/(.+)$/);

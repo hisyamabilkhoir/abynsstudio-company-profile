@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,13 @@
   <title>About — Studio Abynd</title>
   <meta name="description" content="Kenali lebih dekat Studio Abynd, digital agency premium Indonesia.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
-  <script>sessionStorage.setItem('route','/about');window.location.replace('/');</script>
+  <script>
+    var path = window.location.pathname;
+    var repo = path.split('/')[1];
+    var root = (window.location.hostname.includes('github.io') && repo) ? '/' + repo + '/' : '/';
+    sessionStorage.setItem('route', path);
+    window.location.replace(root);
+  </script>
 </head>
 <body>
   <noscript><h1>About — Studio Abynd</h1><p>Kenali lebih dekat Studio Abynd, digital agency premium Indonesia.</p><p><a href="/">Go to homepage</a></p></noscript>

@@ -120,7 +120,7 @@ const PageAbout = {
       <div class="cta-content container reveal">
         <h2 class="shimmer-heading" style="font-size:var(--fs-h1);">Mari Berkolaborasi</h2>
         <p>Ceritakan visi Anda dan biarkan kami mewujudkannya menjadi karya digital yang luar biasa.</p>
-        <a href="/contact" class="btn btn-gold btn-lg nav-internal">Hubungi Kami →</a>
+        <a href="contact" class="btn btn-gold btn-lg nav-internal">Hubungi Kami →</a>
       </div>
     </section>`;
   },

@@ -116,7 +116,7 @@ const PageServices = {
       <div class="cta-content container reveal">
         <h2 class="shimmer-heading" style="font-size:var(--fs-h1);">Butuh Solusi Digital?</h2>
         <p>Diskusikan proyek Anda bersama kami. Konsultasi awal gratis!</p>
-        <a href="/contact" class="btn btn-gold btn-lg nav-internal">Konsultasi Gratis →</a>
+        <a href="contact" class="btn btn-gold btn-lg nav-internal">Konsultasi Gratis →</a>
       </div>
     </section>`;
   },

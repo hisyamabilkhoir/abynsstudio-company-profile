@@ -14,8 +14,8 @@ const PageHome = {
         <h1 class="hero-title shimmer-heading">Where Vision Meets<br>Digital Excellence</h1>
         <p class="hero-subtitle">Kami menciptakan pengalaman digital berkelas internasional yang mengubah visi menjadi karya luar biasa. Setiap pixel dirancang untuk kesempurnaan.</p>
         <div class="hero-cta">
-          <a href="/portfolio" class="btn btn-gold nav-internal">Lihat Portfolio</a>
-          <a href="/contact" class="btn btn-outline nav-internal">Hubungi Kami</a>
+          <a href="portfolio" class="btn btn-gold nav-internal">Lihat Portfolio</a>
+          <a href="contact" class="btn btn-outline nav-internal">Hubungi Kami</a>
         </div>
       </div>
       <div class="hero-scroll-indicator">
@@ -62,7 +62,7 @@ const PageHome = {
             <h2 class="section-title shimmer-heading">Crafting Digital Excellence Since 2021</h2>
             <p style="margin-bottom:var(--space-lg);">Studio Abynd lahir dari visi untuk menghadirkan solusi digital berkelas internasional. Kami percaya bahwa setiap pixel memiliki makna, setiap interaksi harus memukau, dan setiap proyek adalah mahakarya.</p>
             <p style="margin-bottom:var(--space-2xl);">Dengan tim yang terdiri dari programmer berpengalaman dan kreator konten berbakat, kami menghadirkan pengalaman digital yang tidak hanya indah, tetapi juga berdampak nyata bagi bisnis klien kami.</p>
-            <a href="/about" class="btn btn-outline nav-internal">Selengkapnya →</a>
+            <a href="about" class="btn btn-outline nav-internal">Selengkapnya →</a>
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@ const PageHome = {
           </div>
         </div>
         <div class="text-center reveal" style="margin-top:var(--space-3xl);">
-          <a href="/services" class="btn btn-gold nav-internal">Semua Layanan →</a>
+          <a href="services" class="btn btn-gold nav-internal">Semua Layanan →</a>
         </div>
       </div>
     </section>
@@ -185,7 +185,7 @@ const PageHome = {
           </div>
         </div>
         <div class="text-center reveal" style="margin-top:var(--space-3xl);">
-          <a href="/portfolio" class="btn btn-outline nav-internal">Lihat Semua →</a>
+          <a href="portfolio" class="btn btn-outline nav-internal">Lihat Semua →</a>
         </div>
       </div>
     </section>
@@ -265,7 +265,7 @@ const PageHome = {
       <div class="cta-content container reveal">
         <h2 class="shimmer-heading" style="font-size:var(--fs-h1);">Siap Memulai Proyek Anda?</h2>
         <p>Konsultasikan kebutuhan digital Anda bersama kami dan wujudkan visi yang luar biasa.</p>
-        <a href="/contact" class="btn btn-gold btn-lg nav-internal">Mulai Sekarang →</a>
+        <a href="contact" class="btn btn-gold btn-lg nav-internal">Mulai Sekarang →</a>
       </div>
     </section>`;
   },

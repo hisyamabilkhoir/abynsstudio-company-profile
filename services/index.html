@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,13 @@
   <title>Services — Studio Abynd</title>
   <meta name="description" content="Layanan digital premium Studio Abynd: website, mobile app, printing, multimedia.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
-  <script>sessionStorage.setItem('route','/services');window.location.replace('/');</script>
+  <script>
+    var path = window.location.pathname;
+    var repo = path.split('/')[1];
+    var root = (window.location.hostname.includes('github.io') && repo) ? '/' + repo + '/' : '/';
+    sessionStorage.setItem('route', path);
+    window.location.replace(root);
+  </script>
 </head>
 <body>
   <noscript><h1>Services — Studio Abynd</h1><p>Layanan digital premium Studio Abynd: website, mobile app, printing, multimedia.</p><p><a href="/">Go to homepage</a></p></noscript>

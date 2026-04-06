@@ -48,7 +48,7 @@ const PagePortfolio = {
       <div class="cta-content container reveal">
         <h2 class="shimmer-heading" style="font-size:var(--fs-h1);">Ingin Melihat Lebih?</h2>
         <p>Hubungi kami untuk portofolio lengkap dan studi kasus detail.</p>
-        <a href="/contact" class="btn btn-gold btn-lg nav-internal">Hubungi Kami →</a>
+        <a href="contact" class="btn btn-gold btn-lg nav-internal">Hubungi Kami →</a>
       </div>
     </section>`;
   },
@@ -92,7 +92,7 @@ const blogArticles = [
 const PageBlog = {
   render() {
     const cards = blogArticles.map((a,i) => `
-      <a href="/blog/${a.slug}" class="blog-card reveal delay-${i+1} nav-internal" style="text-decoration:none;">
+      <a href="blog/${a.slug}" class="blog-card reveal delay-${i+1} nav-internal" style="text-decoration:none;">
         <div class="blog-card-image">
           <div style="width:100%;height:100%;background:linear-gradient(135deg,${a.color});display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.2);">📝</div>
         </div>
@@ -168,7 +168,7 @@ const PageAwards = {
       <div class="cta-content container reveal">
         <h2 class="shimmer-heading" style="font-size:var(--fs-h1);">Jadilah Project Berikutnya</h2>
         <p>Proyek Anda bisa menjadi karya pemenang penghargaan berikutnya.</p>
-        <a href="/contact" class="btn btn-gold btn-lg nav-internal">Mulai Proyek →</a>
+        <a href="contact" class="btn btn-gold btn-lg nav-internal">Mulai Proyek →</a>
       </div>
     </section>`;
   },

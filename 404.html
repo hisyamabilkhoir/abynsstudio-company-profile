@@ -7,10 +7,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
   <script>
     // GitHub Pages SPA fallback
-    // Store the attempted path and redirect to root for SPA handling
     var path = window.location.pathname;
+    var repo = path.split('/')[1];
+    var root = (window.location.hostname.includes('github.io') && repo) ? '/' + repo + '/' : '/';
+    
+    // Store the attempted path and redirect to project root
     sessionStorage.setItem('route', path);
-    window.location.replace('/');
+    window.location.replace(root);
   </script>
 </head>
 <body>
