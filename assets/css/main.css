@@ -8,17 +8,17 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  /* Colors — Deep Purple Palette */
-  --clr-bg-darkest: #050211;
-  --clr-bg-dark: #0a0612;
-  --clr-bg-base: #0d0b1a;
-  --clr-bg-card: #110e20;
-  --clr-bg-elevated: #1a1530;
-  --clr-purple-deep: #1a0a2e;
-  --clr-purple-mid: #2d1b69;
-  --clr-purple-bright: #4a1f8e;
-  --clr-purple-glow: #6b3fa0;
-  --clr-purple-light: #9b6dcd;
+  /* Colors — Deep Purple Palette (Lightened & More Vibrant) */
+  --clr-bg-darkest: #1a0a40;
+  --clr-bg-dark: #251254;
+  --clr-bg-base: #2e1864;
+  --clr-bg-card: #382075;
+  --clr-bg-elevated: #462c88;
+  --clr-purple-deep: #5a35a0;
+  --clr-purple-mid: #7e50c4;
+  --clr-purple-bright: #9d72df;
+  --clr-purple-glow: #b991f0;
+  --clr-purple-light: #d5bcff;
 
   /* Colors — Gold Metallic Palette */
   --clr-gold-dark: #8b6914;
@@ -42,11 +42,11 @@
   /* Gold Gradient */
   --gradient-gold: linear-gradient(135deg, #8b6914, #b8860b, #d4a843, #f0c75e, #d4a843, #b8860b, #8b6914);
   --gradient-gold-text: linear-gradient(90deg, #b8860b, #d4a843, #f0c75e, #ffe08a, #f0c75e, #d4a843, #b8860b);
-  --gradient-purple: linear-gradient(135deg, #1a0a2e, #2d1b69, #4a1f8e);
-  --gradient-hero: radial-gradient(ellipse at 30% 20%, rgba(74, 31, 142, 0.3) 0%, transparent 50%),
-                   radial-gradient(ellipse at 70% 60%, rgba(45, 27, 105, 0.25) 0%, transparent 50%),
-                   radial-gradient(ellipse at 50% 100%, rgba(139, 105, 20, 0.1) 0%, transparent 40%),
-                   linear-gradient(180deg, #050211, #0a0612);
+  --gradient-purple: linear-gradient(135deg, var(--clr-purple-deep), var(--clr-purple-mid), var(--clr-purple-bright));
+  --gradient-hero: radial-gradient(ellipse at 30% 20%, rgba(112, 66, 193, 0.35) 0%, transparent 60%),
+                   radial-gradient(ellipse at 70% 60%, rgba(76, 38, 146, 0.3) 0%, transparent 50%),
+                   radial-gradient(ellipse at 50% 100%, rgba(212, 168, 67, 0.15) 0%, transparent 40%),
+                   linear-gradient(180deg, var(--clr-bg-darkest), var(--clr-bg-dark));
 
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;

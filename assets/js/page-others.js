@@ -5,22 +5,26 @@
 const PagePortfolio = {
   render() {
     const projects = [
-      { title:'Luxury Resort Bali', cat:'web', color:'#1a1535,#2d1b69', icon:'🌐' },
-      { title:'FinTech Dashboard', cat:'mobile', color:'#0d1b2a,#1b3a5c', icon:'📱' },
-      { title:'Elite Property Group', cat:'web', color:'#1a0f0a,#3d2914', icon:'🏢' },
-      { title:'Artisan Coffee Co.', cat:'branding', color:'#0a1a0d,#1a3d1f', icon:'🎨' },
-      { title:'Wellness App', cat:'mobile', color:'#1a0a2e,#3d1b69', icon:'💆' },
-      { title:'Fashion E-Commerce', cat:'web', color:'#2a0d1b,#5c1b3a', icon:'👗' },
-      { title:'Wedding Invitation Suite', cat:'multimedia', color:'#1a150a,#3d3014', icon:'💍' },
-      { title:'Corporate Annual Report', cat:'multimedia', color:'#0a0f1a,#142a3d', icon:'📊' },
-      { title:'Restaurant Brand Identity', cat:'branding', color:'#1a0a0a,#3d1414', icon:'🍽️' },
+      { id: 1, title: 'Luxury Resort Bali', cat: 'Website', img: 'portfolio_resort.png' },
+      { id: 2, title: 'FinTech Dashboard', cat: 'Mobile App', img: 'portfolio_fintech.png' },
+      { id: 3, title: 'Elite Property Group', cat: 'Company Profile', img: 'portfolio_resort.png' },
+      { id: 4, title: 'Artisan Coffee Co.', cat: 'Branding', img: 'portfolio_branding.png' },
+      { id: 5, title: 'Wellness App', cat: 'Mobile App', img: 'portfolio_fintech.png' },
+      { id: 6, title: 'Fashion E-Commerce', cat: 'Website', img: 'portfolio_resort.png' },
+      { id: 7, title: 'Wedding Invitation Suite', cat: 'Multimedia', img: 'portfolio_branding.png' },
+      { id: 8, title: 'Corporate Annual Report', cat: 'Multimedia', img: 'portfolio_fintech.png' },
+      { id: 9, title: 'Restaurant Brand Identity', cat: 'Branding', img: 'portfolio_branding.png' },
     ];
-    const items = projects.map((p,i) => `
-      <div class="portfolio-item reveal delay-${(i%4)+1}" data-category="${p.cat}">
-        <div style="width:100%;height:100%;background:linear-gradient(135deg,${p.color});display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:rgba(212,168,67,0.25);">${p.icon}</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-category">${p.cat}</div>
-          <div class="portfolio-title">${p.title}</div>
+    const items = projects.map((p, i) => `
+      <div class="portfolio-card reveal delay-${(i % 4) + 1}" data-category="${p.cat.toLowerCase().replace(/\s+/g, '')}">
+        <div class="portfolio-card-img">
+          <img src="assets/images/${p.img}" alt="${p.title}">
+          <span class="portfolio-card-tag">${p.cat}</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-card-title">${p.title}</h3>
+          <p class="portfolio-card-text">Sebuah inovasi digital premium yang dikerjakan oleh Studio Abynd dengan standar internasional.</p>
+          <button class="btn-text" onclick="window.showProjectModal(${p.id})">Selengkapnya →</button>
         </div>
       </div>`).join('');
 
@@ -69,15 +73,15 @@ const blogArticles = [
     excerpt: 'Di era digital yang serba cepat ini, branding bukan lagi sekadar logo atau warna. Ini adalah tentang bagaimana bisnis Anda dirasakan dan diingat oleh audiens.',
     date: '15 Maret 2026',
     tag: 'Branding',
-    color: '#1a0a2e,#3d1b69'
+    img: 'portfolio_branding.png'
   },
   {
     slug: 'tren-desain-website-2026',
     title: 'Tren Desain Website 2026 yang Wajib Diketahui',
-    excerpt: 'Dari glassmorphism hingga 3D immersive experience, tahun 2026 membawa tren desain website yang semakin bold dan interaktif.',
+    excerpt: 'Dari glassmorphism hingga 3D immersive experience, tahun 2026 membawa tren desain website yang semakin bold and interaktif.',
     date: '28 Februari 2026',
     tag: 'Design',
-    color: '#0d1b2a,#1b3a5c'
+    img: 'hero_background.png'
   },
   {
     slug: 'company-profile-digital-vs-brosur',
@@ -85,16 +89,16 @@ const blogArticles = [
     excerpt: 'Brosur fisik memiliki keterbatasan. Company profile digital memberikan pengalaman interaktif, jangkauan luas, dan ROI yang lebih terukur.',
     date: '10 Februari 2026',
     tag: 'Business',
-    color: '#1a0f0a,#3d2914'
+    img: 'portfolio_resort.png'
   }
 ];
 
 const PageBlog = {
   render() {
-    const cards = blogArticles.map((a,i) => `
-      <a href="blog/${a.slug}" class="blog-card reveal delay-${i+1} nav-internal" style="text-decoration:none;">
+    const cards = blogArticles.map((a, i) => `
+      <a href="blog/${a.slug}" class="blog-card reveal delay-${i + 1} nav-internal" style="text-decoration:none;">
         <div class="blog-card-image">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,${a.color});display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.2);">📝</div>
+          <img src="assets/images/${a.img}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-meta">
@@ -134,17 +138,17 @@ const PageBlog = {
 const PageAwards = {
   render() {
     const awards = [
-      { icon:'🏆', year:'2025', title:'Best Digital Agency', org:'Indonesia Web Awards' },
-      { icon:'⭐', year:'2025', title:'Top 10 Creative Studio', org:'Creative Asia Summit' },
-      { icon:'🎖️', year:'2024', title:'Excellence in Web Design', org:'Digital Excellence Awards' },
-      { icon:'🥇', year:'2024', title:'Innovation in Digital Media', org:'TechMedia Awards' },
-      { icon:'🏅', year:'2024', title:'Best UI/UX Design', org:'Design Awards Indonesia' },
-      { icon:'💎', year:'2023', title:'Rising Star Agency', org:'Startup & Agency Awards' },
-      { icon:'🌟', year:'2023', title:'Best Client Satisfaction', org:'Service Excellence Awards' },
-      { icon:'👑', year:'2023', title:'Premium Branding Award', org:'Brand Identity Awards' },
+      { icon: '🏆', year: '2025', title: 'Best Digital Agency', org: 'Indonesia Web Awards' },
+      { icon: '⭐', year: '2025', title: 'Top 10 Creative Studio', org: 'Creative Asia Summit' },
+      { icon: '🎖️', year: '2024', title: 'Excellence in Web Design', org: 'Digital Excellence Awards' },
+      { icon: '🥇', year: '2024', title: 'Innovation in Digital Media', org: 'TechMedia Awards' },
+      { icon: '🏅', year: '2024', title: 'Best UI/UX Design', org: 'Design Awards Indonesia' },
+      { icon: '💎', year: '2023', title: 'Rising Star Agency', org: 'Startup & Agency Awards' },
+      { icon: '🌟', year: '2023', title: 'Best Client Satisfaction', org: 'Service Excellence Awards' },
+      { icon: '👑', year: '2023', title: 'Premium Branding Award', org: 'Brand Identity Awards' },
     ];
-    const cards = awards.map((a,i) => `
-      <div class="award-card reveal delay-${(i%4)+1}">
+    const cards = awards.map((a, i) => `
+      <div class="award-card reveal delay-${(i % 4) + 1}">
         <div class="award-icon">${a.icon}</div>
         <div class="award-year">${a.year}</div>
         <h3 class="award-title">${a.title}</h3>

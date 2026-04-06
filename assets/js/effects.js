@@ -10,6 +10,7 @@ const Effects = {
     this.initParallax();
     this.initHeroInteractive();
     this.initHeroParticles();
+    this.initSinkScroll();
   },
 
   /* ---------- Cursor Glow ---------- */
@@ -97,10 +98,13 @@ const Effects = {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
       bg.style.background = `
-        radial-gradient(ellipse at ${x}% ${y}%, rgba(74, 31, 142, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at ${100-x}% ${100-y}%, rgba(45, 27, 105, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at ${x}% ${100-y}%, rgba(139, 105, 20, 0.1) 0%, transparent 40%),
-        linear-gradient(180deg, #050211, #0a0612)
+        radial-gradient(ellipse 500px 500px at ${x}% ${y}%, rgba(120, 50, 200, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 300px 300px at ${x}% ${y}%, rgba(212, 168, 67, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 30% 20%, rgba(80, 30, 140, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(60, 20, 120, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 30%, rgba(100, 40, 160, 0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(212, 168, 67, 0.08) 0%, transparent 40%),
+        linear-gradient(180deg, #0a0318 0%, #150830 20%, #1a0d40 40%, #140a38 60%, #0e062a 80%, #080315 100%)
       `;
     });
 
@@ -136,11 +140,56 @@ const Effects = {
     }
   },
 
+  /* ---------- Hero Sinking Scroll Effect ---------- */
+  initSinkScroll() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const split = hero.querySelector('.hero-split');
+    const banner = hero.querySelector('.hero-banner-3d');
+    const florals = hero.querySelector('.hero-florals');
+    const waves = hero.querySelector('.hero-wave-wrap');
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.pageYOffset;
+          const heroH = hero.offsetHeight;
+          const progress = Math.min(scrollY / heroH, 1); // 0 to 1
+
+          // Sink the content down and fade out
+          if (split) {
+            split.style.transform = `translateY(${progress * 80}px)`;
+            split.style.opacity = 1 - progress * 0.8;
+          }
+          // Banner sinks deeper & rotates
+          if (banner) {
+            banner.style.transform = `translateY(${progress * 120}px) rotateX(${progress * 8}deg) scale(${1 - progress * 0.15})`;
+          }
+          // Florals float up (opposite)
+          if (florals) {
+            florals.style.transform = `translateY(${-progress * 60}px)`;
+            florals.style.opacity = 1 - progress * 1.2;
+          }
+          // Waves rise
+          if (waves) {
+            waves.style.transform = `translateY(${-progress * 40}px) scaleY(${1 + progress * 0.3})`;
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  },
+
   /* ---------- Reinitialize on page change ---------- */
   reinit() {
     this.initTilt3D();
     this.initParallax();
     this.initHeroInteractive();
     this.initHeroParticles();
+    this.initSinkScroll();
   }
 };

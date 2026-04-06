@@ -136,7 +136,11 @@ const App = {
   getPageContent(path) {
     // Normalize path
     let cleanPath = path.replace(/\/+$/, '') || '/';
-    if (cleanPath === '/index.html') cleanPath = '/';
+    
+    // Handle home page variations
+    if (cleanPath === '/index.html' || cleanPath === '/.' || cleanPath === '/./') {
+      cleanPath = '/';
+    }
 
     // Check for blog detail
     const blogMatch = cleanPath.match(/^\/blog\/(.+)$/);
@@ -193,3 +197,60 @@ const App = {
 document.addEventListener('DOMContentLoaded', () => {
   App.init();
 });
+
+/* ---------- PORTFOLIO MODAL LOGIC ---------- */
+const PROJECT_DATA = [
+  { id: 1, title:'Luxury Resort Bali', cat:'Website', client:'Ametis Group', year:'2025', img:'portfolio_resort.png', fullDesc:'Sebuah platform reservasi dan showcase visual untuk resort mewah di Bali. Fokus pada user experience yang sinematik dan integrasi sistem booking yang seamless untuk meningkatkan konversi tamu internasional.' },
+  { id: 2, title:'FinTech Dashboard', cat:'Mobile App', client:'Artha Finance', year:'2025', img:'portfolio_fintech.png', fullDesc:'Dashboard manajemen keuangan yang kompleks namun tetap intuitif. Menghadirkan visualisasi data real-time, manajemen aset, dan protokol keamanan enkripsi tingkat tinggi untuk pengguna korporat.' },
+  { id: 3, title:'Elite Property Group', cat:'Company Profile', client:'Elite Realty', year:'2024', img:'portfolio_resort.png', fullDesc:'Website profil perusahaan properti yang menekankan pada eksklusivitas. Menggunakan tipografi elegan dan layout minimalis untuk menonjolkan listing properti mewah dengan nilai investasi tinggi.' },
+  { id: 4, title:'Artisan Coffee Co.', cat:'Branding', client:'Artisan Bean', year:'2024', img:'portfolio_branding.png', fullDesc:'Pengembangan identitas brand menyeluruh untuk kedai kopi artisan. Mencakup desain logo, skema warna earthy-premium, hingga desain kemasan produk yang memperkuat daya tarik visual brand di pasar retail.' },
+  { id: 5, title:'Wellness App', cat:'Mobile App', client:'Nuansa Jiwa', year:'2024', img:'portfolio_fintech.png', fullDesc:'Aplikasi meditasi dan kesehatan mental dengan antarmuka yang menenangkan. Menggunakan elemen visual organik dan micro-interactions yang halus untuk menciptakan lingkungan digital yang rileks.' },
+  { id: 6, title:'Fashion E-Commerce', cat:'Website', client:'Vogue Elite', year:'2024', img:'portfolio_resort.png', fullDesc:'Platform belanja fashion kelas atas dengan navigasi yang sangat lancar. Mengoptimalkan performa load gambar high-resolution dan sistem checkout yang dikustomisasi untuk pengalaman belanja elit.' },
+  { id: 7, title:'Wedding Suite', cat:'Multimedia', client:'The Arsa Wedding', year:'2023', img:'portfolio_branding.png', fullDesc:'Suite desain multimedia untuk pernikahan mewah. Mencakup undangan digital interaktif, animasi pembuka acara, hingga sistem RSVP online terpadu dengan desain yang artistik.' },
+  { id: 8, title:'Corporate Report', cat:'Multimedia', client:'Bakti Persada', year:'2023', img:'portfolio_fintech.png', fullDesc:'Transformasi laporan tahunan cetak menjadi pengalaman digital interaktif. Menyajikan data performa perusahaan melalui grafik interaktif yang mempermudah pemangku kepentingan memahami capaian bisnis.' },
+  { id: 9, title:'Restaurant Identity', cat:'Branding', client:'The Gold Leaf', year:'2023', img:'portfolio_branding.png', fullDesc:'Konsep identitas visual untuk restoran fine-dining. Memadukan elemen emas dan ornamen klasik untuk menciptakan citra eksklusif yang selaras dengan pengalaman kuliner berkualitas tinggi.' }
+];
+
+window.showProjectModal = (id) => {
+  const project = PROJECT_DATA.find(p => p.id === id);
+  if (!project) return;
+  
+  const modal = document.getElementById('project-modal');
+  const content = document.getElementById('modal-content');
+  if (!modal || !content) return;
+  
+  content.innerHTML = `
+    <div class="modal-image">
+      <img src="assets/images/${project.img}" alt="${project.title}">
+    </div>
+    <div class="modal-info">
+      <span class="modal-tag">${project.cat}</span>
+      <h2 class="modal-title gold-text-static">${project.title}</h2>
+      <p class="modal-text">${project.fullDesc}</p>
+      
+      <div class="modal-meta-grid">
+        <div class="meta-item">
+          <h4>Klien</h4>
+          <p>${project.client}</p>
+        </div>
+        <div class="meta-item">
+          <h4>Tahun</h4>
+          <p>${project.year}</p>
+        </div>
+        <div class="meta-item">
+          <h4>Layanan</h4>
+          <p>${project.cat}</p>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; 
+};
+
+window.hideProjectModal = () => {
+  const modal = document.getElementById('project-modal');
+  if (modal) modal.classList.remove('active');
+  document.body.style.overflow = '';
+};

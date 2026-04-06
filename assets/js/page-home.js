@@ -6,21 +6,64 @@ const PageHome = {
   render() {
     return `
     <!-- HERO -->
-    <section class="hero" id="hero-section">
+    <section class="hero hero-kingdom" id="hero-section">
       <div class="hero-bg"></div>
       <div class="hero-particles"></div>
-      <div class="hero-content">
-        <div class="hero-label">✦ Premium Digital Agency ✦</div>
-        <h1 class="hero-title shimmer-heading">Where Vision Meets<br>Digital Excellence</h1>
-        <p class="hero-subtitle">Kami menciptakan pengalaman digital berkelas internasional yang mengubah visi menjadi karya luar biasa. Setiap pixel dirancang untuk kesempurnaan.</p>
-        <div class="hero-cta">
-          <a href="portfolio" class="btn btn-gold nav-internal">Lihat Portfolio</a>
-          <a href="contact" class="btn btn-outline nav-internal">Hubungi Kami</a>
+      
+      <!-- Kingdom Decorations -->
+      <div class="hero-florals" aria-hidden="true">
+        <div class="floral-petal petal-1">👑</div>
+        <div class="floral-petal petal-2">🌸</div>
+        <div class="floral-petal petal-3">✿</div>
+        <div class="floral-petal petal-4">🦋</div>
+        <div class="floral-petal petal-5">🌸</div>
+        <div class="floral-petal petal-6">❀</div>
+        <div class="floral-petal petal-7">🦋</div>
+        <div class="floral-petal petal-8">✿</div>
+        <div class="floral-petal petal-9">🌸</div>
+        <div class="floral-petal petal-10">❁</div>
+        <div class="floral-petal petal-11">🦋</div>
+        <div class="floral-petal petal-12">👑</div>
+        <div class="floral-vine vine-left"></div>
+        <div class="floral-vine vine-right"></div>
+      </div>
+
+      <!-- Split Hero Layout -->
+      <div class="hero-split">
+        <!-- LEFT: Banner -->
+        <div class="hero-left">
+          <div class="hero-banner-3d">
+            <img src="assets/images/banner.png" alt="Studio Abynd" class="hero-banner-img">
+          </div>
+        </div>
+        <!-- RIGHT: Content -->
+        <div class="hero-right">
+          <div class="hero-label">👑 The Royal Digital Kingdom 👑</div>
+          <h1 class="hero-title shimmer-heading">Where Vision Meets<br>Digital Excellence</h1>
+          <p class="hero-subtitle">Kami menciptakan pengalaman digital berkelas internasional yang mengubah visi menjadi karya luar biasa. Setiap pixel dirancang untuk kesempurnaan.</p>
+          <div class="hero-cta">
+            <a href="portfolio" class="btn btn-gold nav-internal">Lihat Portfolio</a>
+            <a href="contact" class="btn btn-outline nav-internal">Hubungi Kami</a>
+          </div>
         </div>
       </div>
+
       <div class="hero-scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
+      </div>
+
+      <!-- 3D Wave Divider -->
+      <div class="hero-wave-wrap" aria-hidden="true">
+        <svg class="hero-wave wave-back" viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path d="M0,80 C360,180 720,0 1080,100 C1260,140 1380,60 1440,80 L1440,180 L0,180Z" fill="rgba(20,8,50,0.5)"/>
+        </svg>
+        <svg class="hero-wave wave-mid" viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path d="M0,100 C240,40 480,160 720,80 C960,0 1200,140 1440,60 L1440,180 L0,180Z" fill="rgba(15,6,40,0.7)"/>
+        </svg>
+        <svg class="hero-wave wave-front" viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path d="M0,120 C180,60 360,140 540,100 C720,60 900,140 1080,80 C1260,40 1380,100 1440,120 L1440,180 L0,180Z" fill="var(--clr-bg-darkest, #050211)"/>
+        </svg>
       </div>
     </section>
 
@@ -54,7 +97,7 @@ const PageHome = {
         <div class="about-content">
           <div class="reveal-left">
             <div class="about-image-wrap">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--clr-purple-deep), var(--clr-purple-mid));display:flex;align-items:center;justify-content:center;font-size:4rem;color:rgba(212,168,67,0.2);">✦</div>
+              <img src="assets/images/about_studio.png" alt="Studio Abynd Workspace" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-lg);">
             </div>
           </div>
           <div class="reveal-right">
@@ -152,40 +195,35 @@ const PageHome = {
         <div class="section-header reveal">
           <div class="section-label">Portfolio</div>
           <h2 class="section-title shimmer-heading">Karya Terbaik Kami</h2>
-          <p class="section-subtitle">Beberapa proyek unggulan yang telah kami kerjakan.</p>
+          <p class="section-subtitle">Beberapa proyek unggulan yang telah kami kerjakan dengan standar kualitas premium.</p>
         </div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item reveal delay-1">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1535,#2d1b69);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.3);">🌐</div>
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Website</div>
-              <div class="portfolio-title">Luxury Resort Bali</div>
+        <div class="portfolio-grid grid-3">
+          ${[
+            { id: 1, title:'Luxury Resort Bali', cat:'Website', desc:'Desain website eksklusif untuk resort bintang 5 dengan visual sinematik.', img:'portfolio_resort.png' },
+            { id: 2, title:'FinTech Dashboard', cat:'Mobile App', desc:'Antarmuka aplikasi keuangan modern dengan sistem keamanan tinggi.', img:'portfolio_fintech.png' },
+            { id: 3, title:'Elite Property Group', cat:'Company Profile', desc:'Profil perusahaan properti elit dengan tampilan elegan dan profesional.', img:'portfolio_resort.png' },
+            { id: 4, title:'Artisan Coffee Co.', cat:'Branding', desc:'Identitas brand kopi premium dengan kemasan dan visual estetis.', img:'portfolio_branding.png' },
+            { id: 5, title:'Wellness App', cat:'Mobile App', desc:'Aplikasi kesehatan mental dengan pengalaman pengguna yang menenangkan.', img:'portfolio_fintech.png' },
+            { id: 6, title:'Fashion E-Commerce', cat:'Website', desc:'Platform belanja fashion mewah dengan sistem transaksi yang lancar.', img:'portfolio_resort.png' },
+            { id: 7, title:'Wedding Suite', cat:'Multimedia', desc:'Desain undangan digital dan multimedia untuk pernikahan eksklusif.', img:'portfolio_branding.png' },
+            { id: 8, title:'Corporate Report', cat:'Multimedia', desc:'Laporan tahunan perusahaan dalam format digital interaktif.', img:'portfolio_fintech.png' },
+            { id: 9, title:'Restaurant Identity', cat:'Branding', desc:'Konsep branding restoran bintang lima dengan sentuhan mewah.', img:'portfolio_branding.png' }
+          ].map((p, i) => `
+            <div class="portfolio-card reveal delay-${(i % 3) + 1}">
+              <div class="portfolio-card-img">
+                <img src="assets/images/${p.img}" alt="${p.title}">
+                <span class="portfolio-card-tag">${p.cat}</span>
+              </div>
+              <div class="portfolio-card-body">
+                <h3 class="portfolio-card-title">${p.title}</h3>
+                <p class="portfolio-card-text">${p.desc}</p>
+                <button class="btn-text" onclick="window.showProjectModal(${p.id})">Selengkapnya →</button>
+              </div>
             </div>
-          </div>
-          <div class="portfolio-item reveal delay-2">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b2a,#1b3a5c);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.3);">📱</div>
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Mobile App</div>
-              <div class="portfolio-title">FinTech Dashboard</div>
-            </div>
-          </div>
-          <div class="portfolio-item reveal delay-3">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0f0a,#3d2914);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.3);">🏢</div>
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Company Profile</div>
-              <div class="portfolio-title">Elite Property Group</div>
-            </div>
-          </div>
-          <div class="portfolio-item reveal delay-4">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a0d,#1a3d1f);display:flex;align-items:center;justify-content:center;font-size:2rem;color:rgba(212,168,67,0.3);">🎨</div>
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Branding</div>
-              <div class="portfolio-title">Artisan Coffee Co.</div>
-            </div>
-          </div>
+          `).join('')}
         </div>
         <div class="text-center reveal" style="margin-top:var(--space-3xl);">
-          <a href="portfolio" class="btn btn-outline nav-internal">Lihat Semua →</a>
+          <a href="portfolio" class="btn btn-outline nav-internal">Lihat Semua Karya →</a>
         </div>
       </div>
     </section>

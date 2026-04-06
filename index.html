@@ -60,11 +60,21 @@
 
   <!-- ========== LOADER ========== -->
   <div id="loader" role="status" aria-label="Loading">
-    <div class="loader-logo">Studio Abynd</div>
+    <!-- Butterflies -->
+    <div class="loader-butterflies" aria-hidden="true">
+      <div class="butterfly bf-1">🦋</div>
+      <div class="butterfly bf-2">🦋</div>
+      <div class="butterfly bf-3">🦋</div>
+      <div class="butterfly bf-4">🦋</div>
+      <div class="butterfly bf-5">🦋</div>
+    </div>
+    <div class="loader-logo">
+      <img src="assets/images/logo.png" alt="Studio Abynd" class="loader-logo-img">
+    </div>
     <div class="loader-bar-container">
       <div class="loader-bar"></div>
     </div>
-    <div class="loader-text">Loading Experience</div>
+    <div class="loader-text">Preparing The Kingdom</div>
   </div>
 
   <!-- ========== CURSOR GLOW ========== -->
@@ -80,7 +90,9 @@
   <header>
     <nav id="navbar" aria-label="Main navigation">
       <div class="nav-inner">
-        <a href="./" class="nav-logo nav-internal" aria-label="Studio Abynd Home">Studio Abynd</a>
+        <a href="./" class="nav-logo nav-internal" aria-label="Studio Abynd Home">
+          <img src="assets/images/logo.png" alt="Studio Abynd" class="nav-logo-img">
+        </a>
         <div class="nav-links" id="nav-links">
           <a href="./" class="nav-link nav-internal">Home</a>
           <a href="about" class="nav-link nav-internal">About</a>
@@ -110,7 +122,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="./" class="nav-logo nav-internal" style="font-size:1.4rem;">Studio Abynd</a>
+          <a href="./" class="nav-logo nav-internal" style="font-size:1.4rem;">
+            <img src="assets/images/logo.png" alt="Studio Abynd" class="nav-logo-img">
+          </a>
           <p>Digital agency premium yang menghadirkan solusi berkelas internasional. Setiap pixel dirancang untuk kesempurnaan.</p>
           <div class="footer-socials">
             <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">📷</a>
@@ -183,6 +197,17 @@
 
   <!-- ========== SCROLL TO TOP ========== -->
   <button id="scroll-top" aria-label="Scroll to top" title="Kembali ke atas">↑</button>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="modal-overlay" onclick="window.hideProjectModal()"></div>
+    <div class="modal-container">
+      <div class="modal-close" onclick="window.hideProjectModal()">✕</div>
+      <div id="modal-content" class="modal-content-wrap">
+        <!-- Content injected via JS -->
+      </div>
+    </div>
+  </div>
 
   <!-- ========== SCRIPTS ========== -->
   <script src="assets/js/effects.js" defer></script>

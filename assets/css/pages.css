@@ -14,13 +14,138 @@
   overflow: hidden;
   padding: var(--space-5xl) 0;
 }
-.hero-bg {
+
+/* Deep Purple Kingdom Background */
+.hero-kingdom .hero-bg {
   position: absolute;
   inset: 0;
-  background: var(--gradient-hero);
-  background-size: 200% 200%;
-  animation: heroGradient 20s ease infinite;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(80, 30, 140, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(60, 20, 120, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 30%, rgba(100, 40, 160, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(212, 168, 67, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 168, 67, 0.06) 0%, transparent 35%),
+    linear-gradient(180deg, #0a0318 0%, #150830 20%, #1a0d40 40%, #140a38 60%, #0e062a 80%, #080315 100%);
+  background-size: 100%, 100%, 100%, 100%, 100%, 100% 300%;
+  animation: deepOceanShift 30s ease infinite;
   z-index: 0;
+}
+
+/* Split Layout */
+.hero-split {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xl);
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 var(--container-padding);
+}
+.hero-left {
+  flex: 0 0 auto;
+  animation: fadeInLeft 1.2s var(--ease-out-expo) 0.3s both;
+}
+.hero-right {
+  flex: 1;
+  text-align: left;
+}
+
+/* Banner on the Left — LARGER */
+.hero-kingdom .hero-banner-3d {
+  position: relative;
+  top: auto; left: auto;
+  transform: none;
+  animation: bannerFloat 6s ease-in-out infinite;
+  perspective: 800px;
+}
+.hero-kingdom .hero-banner-img {
+  width: clamp(300px, 38vw, 520px);
+  height: auto;
+  filter: drop-shadow(0 0 50px rgba(212, 168, 67, 0.35)) drop-shadow(0 0 100px rgba(100, 40, 180, 0.3));
+  animation: bannerGlow 4s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+/* Kingdom floral layer */
+.hero-florals {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.floral-petal {
+  position: absolute;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  filter: blur(0.3px);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.petal-1  { top: 8%;  left: 5%;  animation: petalDrift1 18s 0s infinite; font-size: 1.4rem; }
+.petal-2  { top: 15%; right: 8%; animation: petalDrift2 22s 1s infinite; font-size: 1.4rem; }
+.petal-3  { top: 35%; left: 3%;  animation: petalDrift3 20s 2s infinite; font-size: 1.5rem; }
+.petal-4  { top: 60%; right: 5%; animation: petalDrift1 24s 3s infinite; font-size: 1.3rem; }
+.petal-5  { bottom: 20%; left: 8%;  animation: petalDrift2 19s 0.5s infinite; font-size: 1.2rem; }
+.petal-6  { bottom: 10%; right: 12%; animation: petalDrift3 21s 1.5s infinite; font-size: 1.5rem; }
+.petal-7  { top: 25%; left: 15%; animation: petalDrift1 23s 4s infinite; font-size: 1rem; }
+.petal-8  { top: 45%; right: 15%; animation: petalDrift2 17s 2.5s infinite; font-size: 1.3rem; }
+.petal-9  { bottom: 35%; left: 20%; animation: petalDrift3 25s 1s infinite; font-size: 1.4rem; }
+.petal-10 { top: 70%; left: 25%; animation: petalDrift1 20s 3.5s infinite; font-size: 1.1rem; }
+.petal-11 { top: 10%; right: 25%; animation: petalDrift2 26s 0s infinite; font-size: 1.2rem; }
+.petal-12 { bottom: 5%; right: 30%; animation: petalDrift3 22s 2s infinite; font-size: 1.4rem; }
+
+/* Vine decorations */
+.floral-vine {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(212, 168, 67, 0.15), rgba(212, 168, 67, 0.08), transparent);
+  border-radius: 100px;
+}
+.vine-left  { left: 8%;  top: 10%;    height: 0; animation: vineGrow 4s var(--ease-out-expo) 1s forwards; transform: rotate(8deg); }
+.vine-right { right: 8%; bottom: 10%; height: 0; animation: vineGrow 4s var(--ease-out-expo) 1.5s forwards; transform: rotate(-8deg); }
+
+/* ---------- WAVE DIVIDER (3D Sinking) ---------- */
+.hero-wave-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  z-index: 3;
+  pointer-events: none;
+}
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.wave-back {
+  animation: waveFlow 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+.wave-mid {
+  animation: waveFlow 6s ease-in-out infinite reverse;
+  opacity: 0.8;
+}
+.wave-front {
+  animation: waveFlow 4s ease-in-out infinite;
+  opacity: 1;
+}
+
+/* Hero split responsive */
+@media (max-width: 900px) {
+  .hero-split { flex-direction: column; text-align: center; }
+  .hero-right { text-align: center; }
+  .hero-kingdom .hero-subtitle { margin: 0 auto var(--space-2xl); }
+  .hero-kingdom .hero-banner-img { width: clamp(220px, 55vw, 350px); opacity: 0.8; }
+}
+@media (max-width: 768px) {
+  .floral-petal { font-size: 1rem !important; opacity: 0.5; }
+  .floral-vine { display: none; }
+  .hero-wave-wrap { height: 100px; }
 }
 .hero-particles {
   position: absolute;

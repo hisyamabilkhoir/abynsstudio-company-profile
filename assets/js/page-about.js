@@ -18,7 +18,7 @@ const PageAbout = {
         <div class="about-content">
           <div class="reveal-left">
             <div class="about-image-wrap">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--clr-purple-deep),var(--clr-purple-mid));display:flex;align-items:center;justify-content:center;font-size:5rem;color:rgba(212,168,67,0.15);">✦</div>
+              <img src="assets/images/about_studio.png" alt="Studio Abynd Space" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </div>
           <div class="reveal-right">
@@ -95,7 +95,7 @@ const PageAbout = {
         <div class="founder-grid">
           <div class="founder-card card-3d reveal delay-1">
             <div class="founder-avatar">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d1b69,#4a1f8e);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">👨‍💻</div>
+              <img src="assets/images/founder_hisyam.png" alt="Hisyam Abilkhoir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;">
             </div>
             <h3 class="founder-name gold-text-static">Hisyam Abilkhoir</h3>
             <div class="founder-role">Programmer & Co-Founder</div>
@@ -104,7 +104,7 @@ const PageAbout = {
           </div>
           <div class="founder-card card-3d reveal delay-2">
             <div class="founder-avatar">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#69351b,#8e5a1f);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🎬</div>
+              <img src="assets/images/founder_annisa.png" alt="Annisa Hanif" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;">
             </div>
             <h3 class="founder-name gold-text-static">Annisa Hanif</h3>
             <div class="founder-role">Content Creator & Video Editor</div>

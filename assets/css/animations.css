@@ -45,19 +45,74 @@
   100% { background-position: 0% 50%; }
 }
 
-@keyframes heroGradient {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 0%;
-  }
+@keyframes heroFloralGradient {
+  0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+  25% { background-position: 0% 0%, 0% 0%, 0% 0%, 50% 100%; }
+  50% { background-position: 0% 0%, 0% 0%, 0% 0%, 100% 50%; }
+  75% { background-position: 0% 0%, 0% 0%, 0% 0%, 50% 0%; }
+}
+
+@keyframes deepOceanShift {
+  0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+  33% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+  66% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 100%; }
+}
+
+/* ---------- Banner Float & Glow ---------- */
+@keyframes bannerFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-15px) rotateX(2deg) rotateY(-3deg); }
+  50% { transform: translateY(-8px) rotateX(-1deg) rotateY(2deg); }
+  75% { transform: translateY(-20px) rotateX(1deg) rotateY(-1deg); }
+}
+
+@keyframes bannerFadeIn {
+  from { opacity: 0; transform: translate(-50%, -45%) scale(0.85); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes bannerGlow {
+  0%   { filter: drop-shadow(0 0 30px rgba(212, 168, 67, 0.2)) drop-shadow(0 0 60px rgba(112, 66, 193, 0.1)); }
+  100% { filter: drop-shadow(0 0 50px rgba(212, 168, 67, 0.35)) drop-shadow(0 0 100px rgba(112, 66, 193, 0.2)); }
+}
+
+/* ---------- Petal Drift Animations ---------- */
+@keyframes petalDrift1 {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.1; }
+  20%  { transform: translate(30px, -60px) rotate(45deg) scale(1.2); opacity: 0.25; }
+  40%  { transform: translate(-20px, -130px) rotate(120deg) scale(0.9); opacity: 0.15; }
+  60%  { transform: translate(50px, -200px) rotate(200deg) scale(1.1); opacity: 0.3; }
+  80%  { transform: translate(-10px, -280px) rotate(300deg) scale(0.85); opacity: 0.12; }
+  100% { transform: translate(0, -350px) rotate(360deg) scale(1); opacity: 0; }
+}
+
+@keyframes petalDrift2 {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.08; }
+  25%  { transform: translate(-40px, -80px) rotate(-60deg) scale(1.3); opacity: 0.2; }
+  50%  { transform: translate(25px, -170px) rotate(-150deg) scale(0.8); opacity: 0.28; }
+  75%  { transform: translate(-30px, -260px) rotate(-270deg) scale(1.15); opacity: 0.1; }
+  100% { transform: translate(10px, -380px) rotate(-360deg) scale(1); opacity: 0; }
+}
+
+@keyframes petalDrift3 {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.12; }
+  33%  { transform: translate(45px, -100px) rotate(80deg) scale(1.2); opacity: 0.22; }
+  66%  { transform: translate(-35px, -220px) rotate(200deg) scale(0.9); opacity: 0.18; }
+  100% { transform: translate(20px, -360px) rotate(360deg) scale(1); opacity: 0; }
+}
+
+/* ---------- Vine Grow ---------- */
+@keyframes vineGrow {
+  0%   { height: 0; opacity: 0; }
+  50%  { opacity: 1; }
+  100% { height: 40vh; opacity: 0.6; }
+}
+
+/* ---------- Wave Flow ---------- */
+@keyframes waveFlow {
+  0%   { transform: translateX(0) scaleY(1); }
+  50%  { transform: translateX(-25px) scaleY(1.15); }
+  100% { transform: translateX(0) scaleY(1); }
 }
 
 /* ---------- Fade Animations ---------- */
@@ -215,6 +270,32 @@
 @keyframes loaderFadeOut {
   0% { opacity: 1; visibility: visible; }
   100% { opacity: 0; visibility: hidden; }
+}
+
+/* ---------- Butterfly Flight ---------- */
+@keyframes bfFly1 {
+  0%   { transform: translate(0, 0) rotate(0deg) scaleX(1); }
+  15%  { transform: translate(60px, -40px) rotate(15deg) scaleX(-1); }
+  30%  { transform: translate(120px, -20px) rotate(-10deg) scaleX(1); }
+  45%  { transform: translate(80px, -80px) rotate(20deg) scaleX(-1); }
+  60%  { transform: translate(30px, -60px) rotate(-5deg) scaleX(1); }
+  75%  { transform: translate(-20px, -30px) rotate(10deg) scaleX(-1); }
+  100% { transform: translate(0, 0) rotate(0deg) scaleX(1); }
+}
+@keyframes bfFly2 {
+  0%   { transform: translate(0, 0) rotate(0deg) scaleX(1); }
+  20%  { transform: translate(-50px, -50px) rotate(-20deg) scaleX(-1); }
+  40%  { transform: translate(-100px, 10px) rotate(15deg) scaleX(1); }
+  60%  { transform: translate(-40px, -70px) rotate(-10deg) scaleX(-1); }
+  80%  { transform: translate(20px, -30px) rotate(5deg) scaleX(1); }
+  100% { transform: translate(0, 0) rotate(0deg) scaleX(1); }
+}
+@keyframes bfFly3 {
+  0%   { transform: translate(0, 0) rotate(0deg) scaleX(-1); }
+  25%  { transform: translate(70px, -60px) rotate(25deg) scaleX(1); }
+  50%  { transform: translate(-30px, -100px) rotate(-15deg) scaleX(-1); }
+  75%  { transform: translate(40px, -40px) rotate(10deg) scaleX(1); }
+  100% { transform: translate(0, 0) rotate(0deg) scaleX(-1); }
 }
 
 /* ---------- Typing / Cursor ---------- */
